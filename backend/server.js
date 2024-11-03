@@ -14,7 +14,6 @@ const app=express();
 const port=9090;
 
 
-const __dirname=path.resolve()
 
 connectDB()
 connectCloudinary()
@@ -28,9 +27,11 @@ app.use('/api/doctor',doctorRouter)
 app.use('/api/user',userRouter)
 //localhost:9090/api/add-doctor
 
-app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Catch-all route to serve index.html for any unmatched route
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
 // app.get('/',(req,res)=>{
