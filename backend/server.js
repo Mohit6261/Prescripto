@@ -14,7 +14,7 @@ const app=express();
 const port=9090;
 
 
-const _dirname=path.resolve()
+const __dirname=path.resolve()
 
 connectDB()
 connectCloudinary()
